@@ -71,7 +71,7 @@ def search_alg(graph: Graph, pkg_list: list) -> list:
 
 			else:
 				search_pool.append(temp_node)
-			
+
 		if add_delay:
 			time.append(time[-1] + (10 /60))
 			wasted_time += 10 / 60
@@ -83,7 +83,7 @@ def search_alg(graph: Graph, pkg_list: list) -> list:
 			return [sched, time, wasted_time]
 		add_delay = True
 		iter += 1
-	
+
 	return [sched, time, wasted_time]
 
 def generate_graph_distance(pkg_list: list) -> Graph:
