@@ -11,7 +11,8 @@ class Pkg:
 		self.p_priority = priority
 		self.p_rta = rta
 		self.p_time_window = self.__set_time_window()
-	
+		self.p_eta = 0
+
 	def __set_time_window(self) -> tuple:
 		time_w = []
 
@@ -24,15 +25,15 @@ class Pkg:
 		else:
 			time_w.append(start_time)
 			time_w.append(start_time + 12)
-		
+
 		return tuple(time_w)
-	
+
 	def get_loc(self) -> tuple:
 		return (self.p_x, self.p_y)
-	
+
 	def miss_check(self, eta):
 		return self.p_time_window[1] > eta
-	
+
 	def within_time_window(self, eta):
 		return self.p_time_window[0] <= eta <= self.p_time_window[1]
 
@@ -46,7 +47,7 @@ class Graph:
 		self.m_adj_mat[src][dest] = weight
 		if not self.m_directed:
 			self.m_adj_mat[dest][src] = weight
-	
+
 	def print_graph(self) -> None:
 		for row in self.m_adj_mat:
 			print(row)
